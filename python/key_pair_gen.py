@@ -3,6 +3,7 @@ This file will be used to generate a public & private key file pair.
 Types include: RSA, ECDSA, ED25519
 """
 from pathlib import Path
+from pyhocon import ConfigFactory
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.serialization import Encoding, PrivateFormat, PublicFormat, NoEncryption
 
@@ -16,6 +17,10 @@ from cryptography.hazmat.primitives import hashes
 # ed25519 import
 from cryptography.hazmat.primitives.asymmetric import ed25519
 
+# hocon config info
+config = ConfigFactory.parse_file('config.conf')
+ssh_directory = config.get('directory.path')
+
 def generate_rsa_key_pair():
     # generate keys
     private_key = rsa.generate_private_key(
@@ -27,7 +32,7 @@ def generate_rsa_key_pair():
 
 
     # file and directory info
-    ssh_directory = Path("~/test_ssh").expanduser()
+    ssh_directory = Path(f"{ssh_directory}").expanduser()
     ssh_directory.mkdir(parents=True, exist_ok=True)
 
     private_rsa_key_filename = "id_rsa"
@@ -78,7 +83,7 @@ def generate_ecdsa_key_pair():
     )
 
     # file and directory info
-    ssh_directory = Path("~/test_ssh").expanduser()
+    ssh_directory = Path(f"{ssh_directory}").expanduser()
     ssh_directory.mkdir(parents=True, exist_ok=True)
 
     private_ecdsa_key_filename = "id_ecdsa"
@@ -112,7 +117,7 @@ def generate_ed25519_key_pair():
     )
 
     # file and directory info
-    ssh_directory = Path("~/test_ssh").expanduser()
+    ssh_directory = Path(f"{ssh_directory}").expanduser()
     ssh_directory.mkdir(parents=True, exist_ok=True)
 
     private_ed25519_key_filename = "id_ed25519"
@@ -127,8 +132,3 @@ def generate_ed25519_key_pair():
 
     # set up permissions
     private_key_filepath.chmod(0o600)
-
-if __name__ == "__main__":
-    generate_rsa_key_pair()
-    generate_ecdsa_key_pair()
-    generate_ed25519_key_pair()
