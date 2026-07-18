@@ -1,6 +1,6 @@
 """
 This file will be used to generate a public & private key file pair.
-Types include: RSA, ECDSA, ED25519, SSH-1 (RSA)
+Types include: RSA, ECDSA, ED25519
 """
 from pathlib import Path
 from cryptography.hazmat.primitives import serialization
@@ -129,4 +129,6 @@ def generate_ed25519_key_pair():
     private_key_filepath.chmod(0o600)
 
 if __name__ == "__main__":
+    generate_rsa_key_pair()
+    generate_ecdsa_key_pair()
     generate_ed25519_key_pair()
