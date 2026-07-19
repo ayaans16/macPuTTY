@@ -5,7 +5,6 @@ This file is meant to take in existing private keys so you can:
 - generate its public key
 """
 
-from pathlib import Path
 from pyhocon import ConfigFactory
 
 # imports for key detection
@@ -13,7 +12,7 @@ from cryptography.hazmat.primitives.serialization import load_pem_private_key, l
 from cryptography.hazmat.primitives.asymmetric import rsa, ec, ed25519
 
 from cryptography.hazmat.primitives import serialization
-from cryptography.hazmat.primitives.serialization import Encoding, PrivateFormat, PublicFormat, NoEncryption
+from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
 
 # rsa imports
 from cryptography.hazmat.primitives.asymmetric import rsa
