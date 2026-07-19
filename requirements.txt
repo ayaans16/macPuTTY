@@ -3,3 +3,4 @@ pyhocon
 flask
 flask-cors
 gunicorn
+requests
