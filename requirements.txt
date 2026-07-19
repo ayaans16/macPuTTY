@@ -1,3 +1,5 @@
 cryptography
-pathlib
 pyhocon
+flask
+flask-cors
+gunicorn
