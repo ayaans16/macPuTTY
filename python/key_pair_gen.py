@@ -18,7 +18,8 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import ed25519
 
 # hocon config info
-config = ConfigFactory.parse_file('config.conf')
+CONFIG_PATH = Path(__file__).resolve().parent.parent / "config.conf"
+config = ConfigFactory.parse_file(str(CONFIG_PATH))
 ssh_directory = config.get('directory.path')
 
 def generate_rsa_key_pair():
