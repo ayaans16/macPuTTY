@@ -1,4 +1,4 @@
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL = "http://localhost:5050";
 
 const els = {
   publicKeyText: document.getElementById("publicKeyText"),
@@ -192,7 +192,7 @@ els.savePublicBtn.addEventListener("click", async () => {
   try {
     const formData = new FormData();
     formData.append("file", new Blob([currentText], { type: "text/plain" }), "key.pub");
-    formData.append("comment", els.comment.value.trim() || "keyforge");
+    formData.append("comment", els.comment.value.trim() || "MacPuTTY");
 
     const res = await fetch(`${BACKEND_URL}/comment`, {
       method: "POST",

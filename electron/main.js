@@ -9,7 +9,7 @@ function createWindow() {
     minWidth: 640,
     minHeight: 600,
     backgroundColor: "#14171B",
-    title: "Keyforge",
+    title: "MacPuTTY",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
