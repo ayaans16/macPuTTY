@@ -3,7 +3,7 @@ A PuTTYgen emulator designed for Apple Silicon users who cannot use native PuTTY
 
 ## What is PuTTYgen?
 It is a software used to create keys used for remote connections via SSH.
-- In a remote server, the public key of an SSH key pair is added to `~/.ssh/authorized_users` to allow them to access the server
+- In a remote server, the public key of an SSH key pair is added to `~/.ssh/authorized_keys` to allow them to access the server
 - To improve security, a lot of enterprise companies protect their virtual private servers with SSH key protection so only authorized devices and users can access their software
 > [!NOTE]
 > Oftentimes, SSH key-based authentication is tied with another network layer such as a virtual private network (VPN) which tells the server this device is authorized and the VPN belongs to [this] person
